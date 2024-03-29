@@ -10,6 +10,23 @@
             --bs-pagination-active-border-color: #1A73E8 !important;
         }
 
+ .dt-button.buttons-pdf.buttons-html5  {
+    border-radius: 0.5em;;
+    background-color: var(--bs-btn-bg);
+    transition: all 0.15s ease-in;
+    margin-bottom: 1.5rem !important;
+    letter-spacing: 0;
+    text-transform: uppercase;
+    background-size: 150%;
+    background-position-x: 25%;
+    background-image: linear-gradient(195deg, #49a3f1 0%, #1A73E8 100%);
+    cursor: pointer;
+    border: 0;
+    box-shadow: 0 3px 3px 0 rgba(26, 115, 232, 0.15), 0 3px 1px -2px rgba(26, 115, 232, 0.2), 0 1px 5px 0 rgba(26, 115, 232, 0.15);
+    color: #fff;
+    width: 165px;
+    display: block;
+ }
     </style>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -132,23 +149,20 @@
         }
 
     </script>
-    <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
     <script src="{{ asset('dashboard/assets/js/material-dashboard.min.js?v=3.1.0') }}">
     </script>
     <script type="text/javascript" src="https://cdn.datatables.net/v/bs4/dt-1.10.22/datatables.min.js"></script>
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/3.1.62/jquery.inputmask.bundle.js"></script> -->
+    <script type="text/javascript" src="https://cdn.datatables.net/buttons/2.0.1/js/dataTables.buttons.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.68/pdfmake.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.68/vfs_fonts.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/buttons/2.0.1/js/buttons.html5.min.js"></script>
+
     <script>
         $.ajaxSetup({
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
             }
         });
-        
-        // var phones = [{ "mask": "(###) ###-####"}, { "mask": "(###) ###-##############"}];
-        // $("input[type='phone']").inputmask({ mask: phones, greedy: false, definitions: { '#': { validator: "[0-9]", cardinality: 1}} });
-
-        // var zip = [{ "mask": "### ###"}, { "mask": "### ###"}];
-        // $('.zip').inputmask({ mask: zip, greedy: false, definitions: { '#': { cardinality: 1}} });
     </script>
     @yield('js')
 </body>

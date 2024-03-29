@@ -100,8 +100,11 @@
             next: '<i class="fa fa-fw fa-long-arrow-right"></i>',
             previous: '<i class="fa fa-fw fa-long-arrow-left"></i>'  
             }
-        }
-
+        },
+        dom: 'Bfrtip',
+                buttons: [
+                    'pdfHtml5'
+                ]
   });
 
 function ban(id) {
