@@ -5,6 +5,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\UserManagementController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\TokenController;
+use App\Http\Controllers\EngineerController;
 
 Route::get('/',[MainController::class, 'homepage'])->name('homepage');
 
@@ -48,8 +49,8 @@ Route::middleware('auth')->prefix('/dashboard')->name('dashboard.')->group(funct
     Route::post('/check-user-exists', [TokenController::class, 'isExist'])->name('check-user-exists');
   });
 
+  Route::middleware('checkroles:admin,engineer')->prefix('/engineer')->name('engineer.')->group(function() {
+    Route::get('/main', [EngineerController::class, 'index'])->name('main');
+  });
 
-  // Route::resource('services', ServiceController::class);
-  
-  
 });
