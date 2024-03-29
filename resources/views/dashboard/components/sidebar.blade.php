@@ -30,6 +30,16 @@
           </a>
         </li>
         @endif
+        @if(Auth::user()->role == 'admin' || Auth::user()->role == 'manager')
+        <li class="nav-item">
+          <a class="nav-link  {{request()->route()->getName() == 'dashboard.services.main' ? 'text-white active bg-gradient-info':'text-dark'}} " href="{{route('dashboard.services.main')}}">
+            <div class="text-center me-2 d-flex align-items-center justify-content-center">
+              <i class="material-icons opacity-10">login</i>
+            </div>
+            <span class="nav-link-text ms-1">Services</span>
+          </a>
+        </li>
+        @endif
         <li class="nav-item">
           <a class="nav-link text-dark  " href="{{route('logout')}}">
             <div class="text-center me-2 d-flex align-items-center justify-content-center">

@@ -3,6 +3,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\UserManagementController;
+use App\Http\Controllers\ServiceController;
 
 Route::get('/',[MainController::class, 'homepage'])->name('homepage');
 
@@ -30,4 +31,16 @@ Route::middleware('auth')->prefix('/dashboard')->name('dashboard.')->group(funct
     Route::post('/ban', [UserManagementController::class, 'ban'])->name('ban');
     Route::post('/update-or-add', [UserManagementController::class, 'updateOrAddUser'])->name('update-or-add');
   });
+
+  Route::middleware('checkroles:admin,manager')->prefix('/service-management')->name('services.')->group(function() {
+    Route::get('/main', [ServiceController::class, 'index'])->name('main');
+    Route::post('/add', [ServiceController::class, 'store'])->name('store');
+    Route::post('/data', [ServiceController::class, 'data'])->name('data');
+    Route::post('/delete/{s_id}', [ServiceController::class, 'destroy'])->name('delete');
+  });
+
+
+  // Route::resource('services', ServiceController::class);
+  
+  
 });
