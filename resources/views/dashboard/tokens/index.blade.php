@@ -23,7 +23,7 @@
               </div>
             </div>
             <div class="card-body px-0 pb-2">
-            <div class="w-100 px-3">
+            <div class=" px-3">
               <a class="btn bg-gradient-info mb-4 mb-2" style="margin-left: auto;width: 165px;display: block;" href="javascript:addTokens();" type="button">Create New Token</a>
             </div>
               <div class="table-responsive p-4">
@@ -126,7 +126,7 @@
     modalBody.innerHTML = `
         <form id="token_form" method="POST" action="{{ route('dashboard.token.store') }}">
             <div class="input-group input-group-outline mb-3 mt-1">
-                <input type="text" class="form-control" id="phone_number" name="user_mobile_email" placeholder="User's Phone Number">
+                <input type="text" class="form-control" id="phone_number" name="user_phone" placeholder="User's Phone Number">
             </div>
             <div class="input-group input-group-outline mb-3">
                 <input type="text" class="form-control w-100" id="user_name" name="user_name" placeholder="User's Name" style="background:#f1f1f1;" readonly>
