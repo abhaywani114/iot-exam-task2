@@ -14,6 +14,8 @@ Route::middleware('guest')->prefix('/user')->name('login.')->group(function() {
     Route::post('/verify-otp', [LoginController::class, "verifyOTP"])->
     name('verify-otp');
 });
+
+Route::get('/unauthorized', [MainController::class, 'unauthorized'])->name('unauthorized');
 Route::get('/login',[LoginController::class, "loginView"] )->name('login');
 Route::get('/logout', [LoginController::class, "logout"])->
     name('logout');
@@ -21,7 +23,7 @@ Route::get('/logout', [LoginController::class, "logout"])->
 Route::middleware('auth')->prefix('/dashboard')->name('dashboard.')->group(function() {
   Route::get('/main', [MainController::class, 'dashboard'])->name('main');
   
-  Route::prefix('/user-management')->name('user-management.')->group(function() {
+  Route::middleware('checkroles:admin')->prefix('/user-management')->name('user-management.')->group(function() {
     Route::get('/main', [UserManagementController::class, 'main'])->name('main');
     Route::post('/data', [UserManagementController::class, 'data'])->name('data');
     Route::post('/delete', [UserManagementController::class, 'delete'])->name('delete');

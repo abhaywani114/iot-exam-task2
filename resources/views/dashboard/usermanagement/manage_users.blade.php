@@ -164,6 +164,9 @@ function updateUserModal(id, name, email, phone, role) {
         <select class="form-control" id="user_role" name="role">
           <option value="admin" ${role === 'admin' ? 'selected' : ''}>Admin</option>
           <option value="viewer" ${role === 'viewer' ? 'selected' : ''}>Viewer</option>
+          <option value="supervisor" ${role === 'supervisor' ? 'selected' : ''}>Supervisor</option>
+          <option value="engineer" ${role === 'engineer' ? 'selected' : ''}>Engineer</option>
+          <option value="manager" ${role === 'manager' ? 'selected' : ''}>Manager</option>
         </select>
       </div>
       @csrf

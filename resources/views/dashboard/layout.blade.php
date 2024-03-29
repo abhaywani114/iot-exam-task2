@@ -1,7 +1,7 @@
 <html>
 
 <head>
-    <title>@yield('title', 'Dashboard') - PRMS</title>
+    <title>@yield('title', 'Dashboard') - Exam</title>
     <style>
         :root {
             --bs-primary: #1A73E8 !important;
