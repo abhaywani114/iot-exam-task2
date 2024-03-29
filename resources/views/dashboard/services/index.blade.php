@@ -24,7 +24,7 @@
             </div>
             <div class="card-body px-0 pb-2">
             <div class="w-100 px-3">
-              <a class="btn bg-gradient-info mb-4 mb-2" style="margin-left: auto;width: 165px;display: block;" href="javascript:addServices();" type="button">Create New User</a>
+              <a class="btn bg-gradient-info mb-4 mb-2" style="margin-left: auto;width: 165px;display: block;" href="javascript:addServices();" type="button">Create New Service</a>
             </div>
               <div class="table-responsive p-4">
                 <table class="table align-items-center mb-0"   id="service">
@@ -124,7 +124,7 @@ function addServices() {
   modalBody.innerHTML = `
     <form id="user_form" method="POST" action="{{route('dashboard.services.store')}}">
       <div class="input-group input-group-outline mb-3 mt-1">
-        <input type="text" class="form-control" id="user_name" value="" name="name" placeholder="User's name">
+        <input type="text" class="form-control" id="user_name" value="" name="name" placeholder="Service name">
       </div>
         </select>
       </div>

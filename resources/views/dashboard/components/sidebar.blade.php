@@ -39,6 +39,16 @@
             <span class="nav-link-text ms-1">Services</span>
           </a>
         </li>
+
+        <li class="nav-item">
+          <a class="nav-link  {{request()->route()->getName() == 'dashboard.token.main' ? 'text-white active bg-gradient-info':'text-dark'}} " href="{{route('dashboard.token.main')}}">
+            <div class="text-center me-2 d-flex align-items-center justify-content-center">
+              <i class="material-icons opacity-10">login</i>
+            </div>
+            <span class="nav-link-text ms-1">Tokens</span>
+          </a>
+        </li>
+
         @endif
         <li class="nav-item">
           <a class="nav-link text-dark  " href="{{route('logout')}}">

@@ -4,6 +4,7 @@ use App\Http\Controllers\MainController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\UserManagementController;
 use App\Http\Controllers\ServiceController;
+use App\Http\Controllers\TokenController;
 
 Route::get('/',[MainController::class, 'homepage'])->name('homepage');
 
@@ -37,6 +38,14 @@ Route::middleware('auth')->prefix('/dashboard')->name('dashboard.')->group(funct
     Route::post('/add', [ServiceController::class, 'store'])->name('store');
     Route::post('/data', [ServiceController::class, 'data'])->name('data');
     Route::post('/delete/{s_id}', [ServiceController::class, 'destroy'])->name('delete');
+  });
+
+
+  Route::middleware('checkroles:admin,manager')->prefix('/token-management')->name('token.')->group(function() {
+    Route::get('/main', [TokenController::class, 'index'])->name('main');
+    Route::post('/add', [TokenController::class, 'store'])->name('store');
+    Route::post('/data', [TokenController::class, 'data'])->name('data');
+    Route::post('/check-user-exists', [TokenController::class, 'isExist'])->name('check-user-exists');
   });
 
 
