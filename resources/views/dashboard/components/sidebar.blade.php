@@ -54,9 +54,19 @@
           <li class="nav-item">
             <a class="nav-link  {{request()->route()->getName() == 'dashboard.engineer.main' ? 'text-white active bg-gradient-info':'text-dark'}} " href="{{route('dashboard.engineer.main')}}">
               <div class="text-center me-2 d-flex align-items-center justify-content-center">
-                <i class="material-icons opacity-10">dataset</i>
+                <i class="material-icons opacity-10">rocket_launch</i>
               </div>
               <span class="nav-link-text ms-1">Engineer</span>
+            </a>
+          </li>
+        @endif
+        @if(Auth::user()->role == 'admin' || Auth::user()->role == 'supervisor')
+        <li class="nav-item">
+            <a class="nav-link  {{request()->route()->getName() == 'dashboard.iot-data.main' ? 'text-white active bg-gradient-info':'text-dark'}} " href="{{route('dashboard.iot-data.main')}}">
+              <div class="text-center me-2 d-flex align-items-center justify-content-center">
+                <i class="material-icons opacity-10">wifi_protected_setup</i>
+              </div>
+              <span class="nav-link-text ms-1">IOT Visualization</span>
             </a>
           </li>
         @endif

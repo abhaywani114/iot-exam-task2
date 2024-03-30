@@ -6,6 +6,7 @@ use App\Http\Controllers\UserManagementController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\TokenController;
 use App\Http\Controllers\EngineerController;
+use App\Http\Controllers\ITODataController;
 
 Route::get('/',[MainController::class, 'homepage'])->name('homepage');
 
@@ -51,6 +52,11 @@ Route::middleware('auth')->prefix('/dashboard')->name('dashboard.')->group(funct
 
   Route::middleware('checkroles:admin,engineer')->prefix('/engineer')->name('engineer.')->group(function() {
     Route::get('/main', [EngineerController::class, 'index'])->name('main');
+  });
+
+  Route::middleware('checkroles:admin,supervisor')->prefix('/iot-data')->name('iot-data.')->group(function() {
+    Route::get('/main', [ITODataController::class, 'index'])->name('main');
+    Route::post('/chart-data', [ITODataController::class, 'chartData'])->name('chart-data');
   });
 
 });
