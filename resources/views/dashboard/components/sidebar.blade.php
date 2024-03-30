@@ -90,12 +90,4 @@
         </li>
         
         @endguest
-        
-    @auth
-    <div class="sidenav-footer position-absolute w-100 bottom-0 ">
-      <div class="mx-3">
-        <a class="btn text-white w-100" style="background: #d85c36;" href="@{{route('dashboard.new-job')}}" type="button" >Create New Token</a>
-      </div>
-    </div>
-    @endauth
   </aside>

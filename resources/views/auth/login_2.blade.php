@@ -42,5 +42,7 @@
       </div>
 @endsection
 @section('js')
-
+<script>
+  alert('otp: {{$otp}}')
+</script>
 @endsection

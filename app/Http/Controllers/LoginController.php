@@ -41,7 +41,7 @@ class LoginController extends Controller
             // dispatch(new SendOTPJob($email, $otp));
             Mail::to($email)->send(new \App\Mail\OTPNotification($otp));
 
-            return view('auth.login_2', compact('email'));
+            return view('auth.login_2', compact('email','otp'));
         } catch (\Exception $e) {
 			Log::info([
 				"Error"	=>	$e->getMessage(),
