@@ -22,30 +22,21 @@ class ITODataController extends Controller
                         ->orderBy('timestamp')
                         ->get();
 
-        // // Format data for Chart.js
-        // $labels = $data->pluck('formatted_timestamp'); // Assuming formatted timestamp column
-        // $values = $data->pluck('value_column'); // Replace 'value_column' with your actual data column
-
-        // // Return data as JSON
-        // return response()->json([
-        //     'labels' => $labels,
-        //     'values' => $values,
-        // ]);
         $data = IotData::whereBetween('timestamp', [$startDate, $endDate])
         ->select('device_id', DB::raw('COUNT(*) as packet_count'))
         ->groupBy('device_id')
         ->orderBy('device_id')
         ->get();
 
-// Format data for Chart.js
-$labels = $data->pluck('device_id');
-$values = $data->pluck('packet_count');
+        // Format data for Chart.js
+        $labels = $data->pluck('device_id');
+        $values = $data->pluck('packet_count');
 
-// Return data as JSON
-return response()->json([
-'labels' => $labels,
-'values' => $values,
-]);
+        // Return data as JSON
+        return response()->json([
+        'labels' => $labels,
+        'values' => $values,
+        ]);
 
     }
 
