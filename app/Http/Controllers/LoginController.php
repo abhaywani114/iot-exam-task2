@@ -38,8 +38,8 @@ class LoginController extends Controller
                 throw new \Exception("Your account is inactive");
             
             \Log::info(["otp" => $otp ]);
-            // dispatch(new SendOTPJob($email, $otp));
-            Mail::to($email)->send(new \App\Mail\OTPNotification($otp));
+            // disabled for a while
+            //Mail::to($email)->send(new \App\Mail\OTPNotification($otp));
 
             return view('auth.login_2', compact('email','otp'));
         } catch (\Exception $e) {
