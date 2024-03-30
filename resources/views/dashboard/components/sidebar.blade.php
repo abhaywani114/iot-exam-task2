@@ -8,7 +8,7 @@
           <a class="" href="{{route('homepage')}}">
             <img src="{{asset('/img/logo_.png')}}" class="" alt="main_logo" style="height: 130px;display: block;margin: auto;">
           </a>
-          <p class="ms-1 font-weight-bold text-dark text-center mt-2">Dashboard</p>
+          <p class="ms-1 font-weight-bold text-dark text-center mt-2">{{ ucfirst(Auth::user()->role == ?? "")}} Dashboard</p>
           <hr class="horizontal light mt-0 mb-2">
         </li>
         @auth
